@@ -3,6 +3,6 @@
 ？？？？？？？？？？？？？？？？？？？
 
 I‘m weike!
-weike is coming !！！
+weike is coming !
 #### 1.[string\_edit_distance 字符串编辑距离](https://github.com/NewGreatTeam/Algorithm/blob/master/string_edit_distance.md)   ####
 ？？？
