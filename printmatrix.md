@@ -9,7 +9,9 @@
 	打印结果：1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
 	要求：额外空间复杂度为O(1)。
 
-java
+JAVA
+
+
 	public class PrintMatrixSpiralOrder {
 
 		public static void spiralOrderPrint(int[][] matrix) {
@@ -61,7 +63,8 @@ java
 		}
 	}
 
-c++
+C++
+
 	void printEdge(int * m, int tR, int tC, int dR, int dC,int row,int col) {
 	if (tR == dR) {
 		
