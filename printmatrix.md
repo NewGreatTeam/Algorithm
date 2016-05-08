@@ -9,7 +9,7 @@
 	打印结果：1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10
 	要求：额外空间复杂度为O(1)。
 
-
+java
 	public class PrintMatrixSpiralOrder {
 
 		public static void spiralOrderPrint(int[][] matrix) {
@@ -60,3 +60,61 @@
 	
 		}
 	}
+
+c++
+	void printEdge(int * m, int tR, int tC, int dR, int dC,int row,int col) {
+	if (tR == dR) {
+		
+		// 子矩阵只有一行时
+		for (int i = tC; i <= dC; i++) {
+			cout<<*(m+i)<<endl;
+		}
+
+
+	} 
+	
+	else if (tC == dC) { 
+		
+		// 子矩阵只有一列时
+		for (int i = tR; i <= dR; i++) {
+			cout<<*(m+col*i+tC)<<endl;
+		}
+
+
+	} 
+	
+	else { // 一般情况
+		int curC = tC;
+		int curR = tR;
+		while (curC != dC) {
+			cout<<*(m+tR*col+curC)<<endl;
+			curC++;
+		}
+		while (curR != dR) {
+			cout<<*(m+curR*col+dC)<<endl;
+			curR++;
+		}
+		while (curC != tC) {
+			cout<<*(m+col*dR+curC)<<endl;
+			curC--;
+		}
+		while (curR != tR) {
+			cout<<*(m+col*curR+tC)<<endl;
+			curR--;
+		}
+	}
+}
+
+
+
+void spiralOrder(int* matrix,int row,int col)
+{
+	int tR = 0;
+	int tC = 0;
+	int dR = row -1;
+	int dC = col -1;
+	while(tR<=dR&&tC<=dC)
+	{
+		printEdge(matrix, tR++, tC++, dR--, dC--,col,row);
+	}
+}
