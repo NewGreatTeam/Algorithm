@@ -7,3 +7,45 @@
 	例：
 		str1 = "123" ,str2 = "231" ,返回true
 		str1 = "123" ,str2 = "2331" ,返回false
+**C++不使用数组和STL**
+
+bool f(char *str1,char *str2)//判断str1和str2是否为变形
+{
+	
+	if (strlen(str1)!=strlen(str2))
+	{
+		return 0;
+	}
+
+
+
+	if (*str1=='\0'||*str2=='\0')
+	{
+		return 0;
+	}
+	while(*str1 != '\0')
+	{
+		if (c_time(str1,*str1)!=c_time(str2,*str1))
+		{
+			return 0;
+		}
+		str1++;
+	}
+	return 1;}
+int c_time(char *str,char c)//字符c在str中的出现的次数
+{
+	int sum = 0;
+	if (!str)
+	{
+		return sum;
+	}
+	while(*str != '\0')
+	{
+		if (*str == c)
+		{
+			sum++;
+		}
+		str++;
+	}
+	return sum;
+}
