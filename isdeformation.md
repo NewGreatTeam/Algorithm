@@ -8,6 +8,20 @@
 		str1 = "123" ,str2 = "231" ,返回true
 		str1 = "123" ,str2 = "2331" ,返回false
 **C++不使用数组和STL**
+	
+	#include<iostream>
+	using namespace std;
+	int c_time(char *str,char c);
+	bool f(char *str1,char *str2);
+	int main()
+	{
+		char *str1 = "123";
+		char *str2 = "";
+	
+		cout<<f(str2,str1);
+		return 0;
+	}
+
 
 	bool f(char *str1,char *str2)//判断str1和str2是否为变形
 	{
