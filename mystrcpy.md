@@ -52,18 +52,16 @@
 **递归**
 
 	char* c_copy(char* dst,const char* src)
-{
-
+	{
 	if (*(src) =='\0')
 	{
 		*dst = '\0';
 		return dst;
 	}
-	
 	*dst = *src;
 	dst++;
 	src++;
 	c_copy(dst,src);
 	return dst;
-}
+	}
 	
