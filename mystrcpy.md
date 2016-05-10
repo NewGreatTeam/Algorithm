@@ -51,17 +51,32 @@
 
 **递归**
 
+	#include<iostream>
+	using namespace std;
+	
 	char* c_copy(char* dst,const char* src)
 	{
-	if (*(src) =='\0')
-	{
-		*dst = '\0';
-		return dst;
-	}
-	*dst = *src;
-	dst++;
-	src++;
-	c_copy(dst,src);
-	return dst;
+		char* temp = dst;
+		if (*(src) =='\0')
+		{
+			*dst = '\0';
+		}
+		else
+		{	
+		*dst = *src;
+		dst++;
+		src++;
+		c_copy(dst,src);
+		}
+		return temp;
 	}
 	
+	int main()
+	{
+		char* src = "AB";
+		char* dst = new char();
+		dst = c_copy(dst,src);
+		cout<<dst<<endl;
+		return 0;
+	}
+		
