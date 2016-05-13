@@ -113,7 +113,6 @@ int sum(string str)
 int main()
 {
 	string str = "A-1BC--12";
-
 	cout<<sum(str);
 	return 0;
 }
