@@ -49,3 +49,72 @@
 			System.out.println(numSum(test));
 		}
 	}		
+**测试用例**
+<pre>
+* 字符串无数字
+* 字符串为空
+* 字符串中数字子串都为单个数字 1a2b3c
+* 数字子串有连续数字
+* 数字子串中含有-、--等
+* 待补充
+</pre>
+**C++**
+<pre>
+#include<iostream>
+#include<string>
+using namespace std;
+
+bool is_number(char c)
+{
+	if (c>='0'&&c<='9')
+	{
+		return true;
+	}
+	return false;
+}
+int sum(string str)
+{
+	int sum = 0;
+	int flag1 = -1;
+	int flag2 = 0;
+	if(str.empty())
+		return 0;
+
+	for (int i = 0;i<str.length();i++)
+	{
+
+		if (is_number(str[i])&&flag1<0)
+		{
+			flag1 = i;
+		} 
+
+	   if(is_number(str[i])&&flag1>=0&&!is_number(str[i+1]))
+		{
+			flag2 = i;
+			string tem = str.substr(flag1,flag2-flag1+1);
+			if (str[flag1-1]=='-'&&str[flag1-2]!='-')
+			{
+			
+					sum = sum-atoi(tem.data());
+				
+			}
+			else
+			{
+				sum = sum+atoi(tem.data());
+			}
+		
+			flag1 = -1;
+		}
+	
+	}
+
+	return sum;
+}
+int main()
+{
+	string str = "A-1BC--12";
+
+	cout<<sum(str);
+	return 0;
+}
+</pre>
