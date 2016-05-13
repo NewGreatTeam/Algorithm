@@ -58,62 +58,67 @@
 * 数字子串中含有-、--等
 * 待补充
 </pre>
+
 **C++**
-<pre>
-#include<iostream>
-#include<string>
-using namespace std;
 
-bool is_number(char c)
-{
-	if (c>='0'&&c<='9')
+	#include<iostream>
+	#include<string>
+	using namespace std;
+	
+	bool is_number(char c)
 	{
-		return true;
+		if (c>='0'&&c<='9')
+		{
+			return true;
+		}
+		return false;
 	}
-	return false;
-}
-int sum(string str)
-{
-	int sum = 0;
-	int flag1 = -1;
-	int flag2 = 0;
-	if(str.empty())
-		return 0;
-
-	for (int i = 0;i<str.length();i++)
+	int sum(string str)
 	{
-
-		if (is_number(str[i])&&flag1<0)
+		int sum = 0;
+		int flag1 = -1;
+		int flag2 = 0;
+		if(str.empty())
+			return 0;
+	
+		for (int i = 0;i<str.length();i++)
 		{
-			flag1 = i;
-		} 
-
-	   if(is_number(str[i])&&flag1>=0&&!is_number(str[i+1]))
-		{
-			flag2 = i;
-			string tem = str.substr(flag1,flag2-flag1+1);
-			if (str[flag1-1]=='-'&&str[flag1-2]!='-')
+	
+			if (is_number(str[i])&&flag1<0)
 			{
-			
-					sum = sum-atoi(tem.data());
+				flag1 = i;
+			} 
+	
+		   if(is_number(str[i])&&flag1>=0&&!is_number(str[i+1]))
+			{
+				flag2 = i;
+				string tem = str.substr(flag1,flag2-flag1+1);
+				if (str[flag1-1]=='-'&&str[flag1-2]!='-')
+				{
 				
-			}
-			else
-			{
-				sum = sum+atoi(tem.data());
+						sum = sum-atoi(tem.data());
+					
+				}
+				else
+				{
+					sum = sum+atoi(tem.data());
+				}
+			
+				flag1 = -1;
 			}
 		
-			flag1 = -1;
 		}
+		return sum;
+	}
+	
+	int main()
+	{
+	
+		string str = "A-1BC--12";
+		cout<<sum(str);
+		return 0;
 	
 	}
+	
+   
 
-	return sum;
-}
-int main()
-{
-	string str = "A-1BC--12";
-	cout<<sum(str);
-	return 0;
-}
-</pre>
