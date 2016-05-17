@@ -61,3 +61,73 @@
 			}
 		}
 	}
+
+
+**C++**
+	
+	#include<iostream>
+	using namespace std;
+	//构建大顶堆的调整算法
+	void sift(int r[],int k,int m)
+	{
+		int i = k;
+		int j = 2*k;
+		while (j<=m)
+		{
+			if (j<m && r[j]<r[j+1])
+			{
+				//j指向较大的孩子结点
+				j = j + 1;
+			}
+			if (r[i]<=r[j])
+			{
+				int temp = r[i];
+				r[i] = r[j];
+				r[j] = temp;
+				//根节点的调整会影响孩子结点，所以一直调整到m
+				i = j;
+			j = 2*i;
+			}
+			else
+			{
+				break;
+			}
+		
+		}
+	}
+	//堆排序
+	void HeapSort(int r[ ], int n)
+	{
+		int i;
+		for (i=n/2; i>=1; i--)       //初始建堆，从最后一个非终端结点至根结点
+		{
+		sift(r, i, n) ;     
+		}
+		for (i=1; i<n; i++)        //重复执行移走堆顶及重建堆的操作
+		{
+			int temp = r[1];
+			r[1] = r[n-i+1];
+			r[n-i+1] = temp;
+			sift(r, 1, n-i);
+		}
+	}
+	
+	int main()
+	{
+		int a[] = {0,36,30,18,40,32,45,22,50};
+		int i ;
+		for (i = 1;i<9;i++)
+		{
+			cout<<a[i]<<" ";
+		}
+		cout<<endl;
+	
+		HeapSort(a,8);
+		
+		for (i = 1;i<9;i++)
+		{
+			cout<<a[i]<<" ";
+		}
+		cout<<endl;
+		return 0;
+	}
