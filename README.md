@@ -7,5 +7,7 @@
 #### 4.[堆排序](https://github.com/NewGreatTeam/Algorithm/blob/master/heapsort.md)   ####
 #### 5.[字符串中数字子串的求和](https://github.com/NewGreatTeam/Algorithm/blob/master/allnumberssum.md)   ####
 #### 6.[归并排序](https://github.com/NewGreatTeam/Algorithm/blob/master/mergesort.md)   ####
+#### 7.[希尔排序](https://github.com/NewGreatTeam/Algorithm/blob/master/shellsort.md)   ####
+
 
 
